@@ -1,0 +1,100 @@
+.tabs {
+  margin-top: 30px;
+  width: auto;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.allEvents {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.allEvents th {
+  background-color: lightgreen;
+  color: black;
+  font-size: x-large;
+  font-style: oblique;
+  text-align: center;
+  border: 1px solid black;
+}
+
+.allEvents td {
+  margin: 5px;
+  font-size: large;
+  text-align: center;
+  border: 1px solid black;
+}
+
+.elements {
+  border: 2px solid darkblue;
+  border-radius: 10px;
+}
+
+#EventName {
+  text-align: center;
+  font-size: 40px;
+  border-radius: 5px;
+  margin-left: 20px;
+}
+
+ul.ev1 {
+  margin: 0; /* Обнуляем значение отступов */
+  padding: 4px; /* Значение полей */
+}
+ul.ev1 li {
+  display: inline; /* Отображать как строчный элемент */
+  margin-right: 5px; /* Отступ слева */
+  padding: 3px; /* Поля вокруг текста */
+}
+
+div.dev0 {
+  line-height: 30px;
+  font-size: 30px;
+  background-color: lightblue;
+  border: 1px solid black;
+  border-radius: 2px;
+  width: px;
+  margin: 10px 40px;
+}
+
+div.dev1 {
+  float: top; /*Задаем обтекание*/
+  line-height: 40px;/*Высота строки +  верт. центрирования текста*/
+  font-size: 40px;
+  background: dodgerblue;
+  border-radius: 5px;
+  color: white;
+  margin: 17px 10px 10px;
+  width: px; /*Фиксируем ширину блока*/
+  text-align: center; /*Центрируем текст по горизонтали*/
+  padding: 2px 3px;
+}
+
+div.dev2 {
+  float: left; /*Задаем обтекание*/
+  line-height: 35px;/*Высота строки +  верт. центрирования текста*/
+  font-size: 35px;
+  background: dodgerblue;
+  border-radius: 5px;
+  color: white;
+  margin: 5px 10px 15px;
+  width: px; /*Фиксируем ширину блока*/
+  text-align: center; /*Центрируем текст по горизонтали*/
+  padding: 2px 10px;
+}
+
+div.dev3 {
+  float: left; /*Задаем обтекание*/
+  line-height: 30px;/*Высота строки +  верт. центрирования текста*/
+  font-size: 20px;
+  background: dodgerblue;
+  border-radius: 5px;
+  color: white;
+  margin: 5px 5px 5px;
+  width: px; /*Фиксируем ширину блока*/
+  text-align: center; /*Центрируем текст по горизонтали*/
+  padding: 2px 8px;
+}
+
+

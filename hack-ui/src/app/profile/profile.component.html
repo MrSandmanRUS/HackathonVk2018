@@ -1,0 +1,38 @@
+<div class="container center_div table-bordered">
+  <form>
+    <div class="btn-toolbar form-group button-update">
+      <input type="submit"
+             class="btn btn-success" value="Обновить" (click)="updateData(profile)">
+    </div>
+
+    <div class="form-group">
+      <label class="update" for="city">Регион:</label>
+      <input type="text" class="form-control update" maxlength="30" minlength="3"
+             id="city" [(ngModel)]="profile.city" size="40" #city="ngModel"
+             required placeholder="Область, край, город. Например: Москва"
+             name="city">
+    </div>
+
+    <div class="form-group">
+      <label class="update" for="age">Возраст:</label>
+      <input type="text" class="form-control update" maxlength="3" minlength="1" pattern="^[0-9]*$"
+             id="age" [(ngModel)]="profile.age" size="40" #age="ngModel"
+             required placeholder="Ваш возраст"
+             name="age">
+      <div *ngIf="age.invalid && (age.dirty || age.touched)">
+        <div *ngIf="age.errors.pattern">
+          Возраст должен задаваться числом
+        </div>
+      </div>
+    </div>
+
+    <label class="update" for="achieves">Достижения:</label>
+    <div id="achieves" *ngFor="let achieve of profile.achievements; index as i">
+      <div class="form-group">
+        <input type="text"
+        [(ngModel)]="profile.achievements[i]" class="form-control update" minlength="3" pattern="^[а-яА-Яa-zA-Z0-9,-]*$"
+               #ach="ngModel" name="{{i}}" placeholder="Достижение" required focus>
+      </div>
+    </div>
+  </form>
+</div>

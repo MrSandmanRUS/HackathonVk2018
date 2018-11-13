@@ -1,0 +1,77 @@
+<div class="tabs">
+  <mat-tab-group mat-align-tabs="center" style="width: 100%">
+    <mat-tab label="Все мероприятия">
+      <div class="scrollbar"></div>
+
+      <div class="center_div elements" style="min-height: 150px" *ngFor="let demo of events">
+        <div class="center_div">
+          <div class="dev2" style="font-size: 32px; float: top; width: 95%;">
+            {{demo.name}}
+          </div>
+
+          <div style="float: left">
+          <div class="dev3" style="font-size: 16px; background-color: white; color: dodgerblue">
+            {{demo.tag}}
+          </div>
+
+          <div class="dev3" style="font-size: 16px; background-color: lightgreen">
+            {{demo.date}} || {{demo.age}}
+          </div>
+
+          <div class="dev3" style="font-size: 16px; background-color: lightslategray">
+            {{demo.city}}
+          </div>
+            <div class="dev3" style="font-size: 16px; background-color: lightgrey; color: black;" *ngIf="demo.cost>0">
+              {{demo.cost}}
+            </div>
+            <div class="dev3" style="font-size: 16px; background-color: lightgrey; color: black;" *ngIf="demo.cost==0">
+              БЕСПЛАТНО
+            </div>
+            <div class="dev3" style="font-size: 16px; background-color: lightsalmon">
+              <a href="{{demo.link}}" style="color: black">Перейти</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Рекомендуемые">
+      <div class="scrollbar"></div>
+
+      <div *ngIf="userEvents.length==0" style="text-align: center">
+        <div class="dev0" style="alignment: center">
+          СОБИРАЕМ ЛУЧШЕЕ ДЛЯ ВАС
+        </div>
+      </div>
+      <div class="center_div elements" style="min-height: 150px" *ngFor="let demo of userEvents">
+        <div class="center_div">
+          <div class="dev1">
+            {{demo.name}}
+          </div>
+          <div class="dev2" style="font-size: 20px; background-color: white; color: dodgerblue">
+            {{demo.tag}}
+          </div>
+
+          <div class="dev2" style="font-size: 20px; background-color: lightgreen">
+            {{demo.date}} || {{demo.age}}
+          </div>
+
+          <div class="dev2" style="font-size: 20px; background-color: lightslategray">
+            {{demo.city}}
+          </div>
+          <div class="dev2" style="font-size: 20px; background-color: lightgrey; color: black;" *ngIf="demo.cost>0">
+            {{demo.cost}}
+          </div>
+          <div class="dev2" style="font-size: 20px; background-color: lightgrey; color: black;" *ngIf="demo.cost==0">
+            БЕСПЛАТНО
+          </div>
+          <div class="dev2" style="font-size: 20px; background-color: lightsalmon">
+            <a href="{{demo.link}}" style="color: black">Перейти</a>
+          </div>
+        </div>
+      </div>
+
+    </mat-tab>
+
+  </mat-tab-group>
+</div>

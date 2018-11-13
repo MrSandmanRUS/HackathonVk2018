@@ -1,0 +1,83 @@
+<div class="container center_div table-bordered">
+  <form>
+    <div class="form-group">
+      <label class="login" for="login">Имя пользователя:</label>
+      <input type="login" class="form-control login" maxlength="20" minlength="3" pattern="^[a-zA-Z]{1}[\w]*$"
+             id="login" [(ngModel)]="fullUser.login" size="40" #login="ngModel" required placeholder="Enter login"
+             name="login">
+      <div *ngIf="login.invalid && (login.dirty || login.touched)">
+        <div *ngIf="login.errors.pattern">
+          Логин должен начинаться с латинской буквы и не содержать специальных символов
+        </div>
+        <div *ngIf="login.errors.required">
+          Данное поле обязательно
+        </div>
+        <div *ngIf="login.errors.minlength">
+          Логин должен содержать как минимум 3 символа
+        </div>
+      </div>
+    </div>
+    <div class="form-group login">
+      <label class="login" for="pwd">Пароль:</label>
+      <input type="password" class="form-control login" maxlength="20" id="pwd" [(ngModel)]="fullUser.pwd" size="40"
+             #pwd="ngModel" required placeholder="Enter password" name="pwd">
+      <div *ngIf="pwd.invalid && (pwd.dirty || pwd.touched)">
+        <div *ngIf="pwd.errors.required">
+          Данное поле обязательно
+        </div>
+      </div>
+    </div>
+    <div class="btn-toolbar form-group login">
+      <input type="submit" [disabled]="login.invalid || pwd.invalid"
+             class="btn btn-success" value="Войти" (click)="submit(fullUser)">
+      <input type="submit" class="btn btn-primary" value="Зарегистрироваться" (click)="regmodal.show()">
+      <input type="submit" class="btn btn-primary" value="Войти ВК" (click)="redirect()">
+    </div>
+  </form>
+</div>
+
+<app-modal class="app-modal" #regmodal>
+  <div class="app-modal-header">
+    <h4>
+      Регистрация
+    </h4>
+  </div>
+  <div class="app-modal-body">
+    <div class="form-group">
+      <label class="reg" for="regLogin">Имя пользователя:</label>
+      <input class="form-control reg" maxlength="20" minlength="3" pattern="^[a-zA-Z]{1}[\w]*$" name="regLogin"
+             [(ngModel)]="fullUser.login" size="40" #regLogin="ngModel" required id="regLogin">
+      <div *ngIf="regLogin.invalid && (regLogin.dirty || regLogin.touched)">
+        <div *ngIf="regLogin.errors.pattern">
+          Логин должен начинаться с латинской буквы и не содержать специальных символов
+        </div>
+        <div *ngIf="regLogin.errors.required">
+          Данное поле обязательно
+        </div>
+        <div *ngIf="regLogin.errors.minlength">
+          Логин должен содержать как минимум 3 символа
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="reg" for="regPwd">Пароль:</label>
+      <input type="password" class="form-control reg" minlength="3" maxlength="20" name="regPwd" [(ngModel)]="fullUser.pwd" size="40"
+             #regPwd="ngModel" required id="regPwd">
+      <div *ngIf="regPwd.invalid && (regPwd.dirty || regPwd.touched)">
+        <div *ngIf="regPwd.errors.required">
+          Данное поле обязательно
+        </div>
+        <div *ngIf="regPwd.errors.minlength">
+          Пароль должен содержать как минимум 3 символа
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="app-modal-footer">
+    <div class="btn-toolbar form-group reg">
+      <input type="submit" class="btn btn-default" value="Закрыть" (click)="regmodal.hide()">
+      <input type="submit" class="btn btn-primary" value="Зарегистрироваться" (click)="signup(fullUser)"
+             [disabled]="regLogin.invalid || regPwd.invalid">
+    </div>
+  </div>
+</app-modal>
